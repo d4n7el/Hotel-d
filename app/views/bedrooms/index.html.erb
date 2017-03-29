@@ -1,0 +1,29 @@
+<div class="opciones col m12">
+	<%= link_to new_bedroom_path, class:"btn btn-floating right waves-effect" do %>
+		<i class="material-icons">add_circle</i>
+	<%end%>
+</div>
+<div class="contenedor_habitaciones col m12">
+	<% @bedrooms.each do |b|%>
+		<div class="habitaciones center col m3">
+			<%= link_to edit_bedroom_path(b.id), class:"btn btn-floating right" do%>
+				<i class="material-icons">mode_edit</i>
+			<%end%>
+			<!-- <button class="reserva-btn btn-floating right"><i class="material-icons">business_center</i></button> -->
+			<%= link_to new_bedroom_reservation_path(b.id), class:"reserva-btn btn-floating right" do%>
+				<i class="material-icons">business_center</i>
+			<%end%>
+			<div class="contenido col m12">
+				<div class="image col m12">
+					<figure class="col m12">
+						<%= cl_image_tag( b.get_cover_url, :width => 100, :height => 200) %>
+					</figure>
+				</div>
+				<h5 class="colm12"><%= b.name%></h5>
+				<h6 class="colm12"><%= b.state%></h6>
+				<h6 class="colm12"><%= b.cost.type_service%></h6>
+				<h6 class="colm12">$  <%= b.cost.value%></h6>
+			</div>
+		</div>
+	<% end %>
+</div>

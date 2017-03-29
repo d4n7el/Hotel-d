@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bedroom: one
+  user: one
+  Quantity: MyString
+  days: MyString
+
+two:
+  bedroom: two
+  user: two
+  Quantity: MyString
+  days: MyString

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HotelD</title>
+    <%= csrf_meta_tags %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <%= stylesheet_link_tag    'application', media: 'all'%>
+        <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+  	<nav class="col m10 offset-m1 z-depth-4">
+	    <div class="nav-wrapper">
+	        <%= link_to "Hotel-d",root_path, class:"brand-logo"%>
+	        <ul id="nav-mobile" class="right hide-on-med-and-down">
+	            <%if user_signed_in? %>
+	            	<li class=""><%= link_to "Habitaciones", bedrooms_path %> </li>
+	            	<li class=""><%= link_to "Costos", costs_path %> </li>
+	            	<li class=""><%= link_to destroy_user_session_path, method: :delete do%>
+	            		<i class="material-icons">power_settings_new</i>
+	            		<% end %>
+	            	</li>
+	            <%else%>
+	            	<li class=""><%= link_to new_user_registration_path do%>
+	            		<i class="material-icons">add_circle</i>
+	            		<% end %>
+	            	</li>
+	            	<li class=""><%= link_to new_user_session_path do%>
+	            		<i class="material-icons">account_circle</i>
+	            		<% end %>
+	            	</li>
+	            <% end %>
+	        </ul>
+	    </div>
+	</nav>
+	<div class="row">
+		<div class="yield col m10 offset-m1">
+			<%= yield %>
+		</div>
+	</div>
+	
+    <div class="row">
+	    <div class="mensaje_alerta center">
+	    	<% if flash[:notice] %>
+	    	<div class="center noticia">
+	    		<p class="notice"><%= notice %></p>
+	    		<i class="material-icons ">done_all</i>
+	    	</div>
+	    	<% end %>
+	    	<% if flash[:alert] %>
+	    	<div class="center alerta">
+	    		<p class="alert "><%= alert %> </p>
+	    		<i class="material-icons">info</i>
+	    	</div>
+	    	<% end %>
+	    </div>
+    </div>
+    <!-- Modal Structure -->
+  	<div id="modal_reserva" class="modal">
+    	<div class="modal-content">
+
+    	</div>
+    	<div class="modal-footer">
+      		
+    	</div>
+  	</div>
+  </body>
+</html>

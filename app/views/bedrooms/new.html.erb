@@ -1,0 +1,10 @@
+<div class="opciones col m12">
+	<%= link_to bedrooms_path, class:"btn btn-floating right waves-effect" do %>
+		<i class="material-icons">search</i>
+	<%end%>
+</div>
+<div class="form_habitacions col m12">
+	<%= form_for @bedroom do |f|%>
+		<%= render 'form_bedroom', f: f %>
+	<% end %>
+</div>

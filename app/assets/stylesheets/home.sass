@@ -1,0 +1,88 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$primaryColor: rgba(21,101,192,.9)
+$secundaryColor: #263238
+$color-sombra: rgba(21,101,192,.2)
+$color-alert: rgba(216,67,21,1)
+
+div.yield
+	margin-top: 2em
+nav
+	background-color: $primaryColor !important
+	i,a
+		color: $secundaryColor !important
+div.input-field 
+	padding: 0px
+	margin-top: 2em
+	box-shadow: 1px 0px 4px $color-sombra
+	input
+		border: none
+		margin-top: .2em
+		margin-bottom: .2em !important
+	i
+		color: $primaryColor !important
+		padding-top: .4em
+	input:focus
+		border: 0px !important
+		box-shadow: 0px 1px 0px  transparent !important
+h4
+	color: white
+	text-align: center
+	text-shadow: 1px 0px 4px $secundaryColor
+	padding-bottom: 2em
+h5.mensaje
+	color: $primaryColor
+	margin-top: 2em
+div.field-check_box
+	margin-top: 1em	
+div.mensaje_alerta
+	position: fixed
+	bottom: 0
+	color: white
+	div.center
+		padding: 1em 1em !important
+	div.noticia
+		z-index: 2 !important
+		background-color: $primaryColor !important
+		box-shadow: 0px 1px 20px  $primaryColor !important
+	div.alerta
+		z-index: 2 !important
+		background-color: $color-alert !important
+		box-shadow: 0px 1px 20px  $color-alert !important
+.btn	
+	background-color: $primaryColor !important
+	margin-top: 2em
+	margin-left: 1em
+	margin-bottom: 1em
+.btn-floating
+	z-index: 0 !important
+.reserva-btn
+	box-shadow: -1px 2px 6px  $primaryColor !important
+	background-color: white !important
+	border: 1px  $primaryColor
+	color: $primaryColor !important
+	margin-top: 2em
+	margin-left: 1em
+	margin-bottom: 1em
+	i
+		color: $primaryColor !important
+div.slader
+	background-color: red
+	height: 20em
+	overflow: hidden
+	padding: 0px 0px !important
+	box-shadow: 1px 0px 20px $secundaryColor
+input[type="radio"]:checked + label:after
+	background-color: $primaryColor !important
+	border: $primaryColor !important
+div.input-group
+	margin-top: 2em
+div.publicacion_img
+	height: 12em
+	background-size: cover
+	background-repeat: no-repeat
+	border-radius: 1em
+	input
+		height: 100%
+		opacity: 0

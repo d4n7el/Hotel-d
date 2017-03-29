@@ -1,0 +1,26 @@
+<% @bedroom.get_cover_url != "v1488331135/photo_v0myys.png" ? img = @bedroom.get_cover_url : img = "http://res.cloudinary.com/dboxtzegl/image/upload/#{@bedroom.get_cover_url}" %>
+<div class="image_form col m2 publicacion_img z-depth-5" style='background-image: url(<%= img %>)' >
+	<%= f.fields_for :image, f.object.obtener_imagen do |a| %>
+		<%= a.file_field :cover, placeholder:"", class:"form-control col m12", id:"image_cover"  %>
+	<% end %>
+</div>
+<div class="input-group col m9 offset-m1">
+	<% @costs.each do |c| %>
+		<%= f.radio_button :cost_id, c.id.to_i %> 
+		<%= label :cost_id, c.type_service , for:"bedroom_cost_id_#{c.id}" %>	
+	<% end %>
+</div>
+<div class="input-field col m9 offset-m1">
+	<i class="material-icons prefix">assignment_ind</i>
+	<%= f.text_field :name, placeholder:"Nombre"%>
+</div>
+<div class="input-group col m9 offset-m3">
+	<%= f.radio_button :state, 'Activo' %> 
+	<%= label :state, "Activo" , for:"bedroom_state_activo" %>
+
+	<%= f.radio_button :state, 'Desactivado' %> 
+	<%= label :state, "Desactivado" , for:"bedroom_state_desactivado" %>	
+</div>
+<div class="actions col m12">
+	<%= f.submit "Guardar", class:"btn col m2 offset-m10" %>
+</div>

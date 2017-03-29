@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cover: MyString
+  bedroom: one
+  cost: one
+
+two:
+  cover: MyString
+  bedroom: two
+  cost: two

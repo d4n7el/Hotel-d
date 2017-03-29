@@ -1,0 +1,20 @@
+development:
+  cloud_name: <%= ENV['cloud_name'].to_s %>
+  api_key: <%= ENV['clou_api_Key'].to_s %>
+  api_secret: <%= ENV['clou_api_secret'].to_s %>
+  enhance_image_tag: true
+  static_image_support: false
+  secure: true
+production:
+  cloud_name: <%= ENV['cloud_name'].to_s %>
+  api_key: <%= ENV['clou_api_Key'].to_s %>
+  api_secret: <%= ENV['clou_api_secret'].to_s %>
+  enhance_image_tag: true
+  static_image_support: true
+  secure: true
+test:
+  cloud_name: <%= ENV['cloud_name'].to_s %>
+  api_key: <%= ENV['clou_api_Key'].to_s %>
+  api_secret: <%= ENV['clou_api_secret'].to_s %>
+  enhance_image_tag: true
+  static_image_support: false

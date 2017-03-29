@@ -1,0 +1,54 @@
+<div class="contenedor_habitaciones col m12">
+	<h4>Reservación: <%= @bedroom.name%></h4>
+	<div class="habitaciones center col m3">
+		<%= link_to new_bedroom_reservation_path(@bedroom.id), class:"reserva-btn btn-floating right" do%>
+			<i class="material-icons">business_center</i>
+		<%end%>
+		<div class="contenido col m12">
+			<div class="image col m12">
+				<figure class="col m12">
+					<%= cl_image_tag( @bedroom.get_cover_url, :width => 100, :height => 200) %>
+				</figure>
+			</div>
+			<h5 class="colm12"><%= @bedroom.name%></h5>
+			<h6 class="colm12"><%= @bedroom.state%></h6>
+			<h6 class="colm12"><%= @bedroom.cost.type_service%></h6>
+			<h6 class="colm12">$  <%= @bedroom.cost.value%></h6>
+		</div>
+	</div>
+	<div class="reserva col m7 offset-m1">
+		<%= form_for ([ @bedroom,@reservation]) do |f| %>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">today</i>
+				<%= f.date_field :admission_date, class:"datepicker col m10 offset-m1", placeholder:"Inicio de resrvación"%>
+			</div>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">date_range</i>
+				<%= f.date_field :departure_date, class:"datepicker col m10 offset-m1", placeholder:"Fin de la resrvación"%>
+			</div>
+			<input type="number" id="val_hab" value="<%= @bedroom.cost.value %>" class="hide" readonly>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">show_chart</i>
+				<%= f.number_field :quantity_days, placeholder:"Cantidad de dias",class:"col m10 offset-m1", id:"quantity_days" %>
+			</div>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">assignment_ind</i>
+				<%= f.text_field :client_name, placeholder:"Nombre del cliente",class:"col m10 offset-m1" %>
+			</div>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">show_chart</i>
+				<%= f.text_field :identification_card, placeholder:"Cedula del cliente",class:"col m10 offset-m1" %>
+			</div>
+			<div class="input-field col m12">
+				<i class="material-icons prefix">show_chart</i>
+				<%= f.text_field :phone, placeholder:"Telefono",class:"col m10 offset-m1" %>
+			</div>
+			<div class="pago col m12 center">
+				
+			</div>
+			<div class="actions col m12">
+				<%= f.submit "Reservar ", class:"btn col m2 offset-m10" %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<% @cost.get_cover_url != "v1488331135/photo_v0myys.png" ? img = @cost.get_cover_url : img = "http://res.cloudinary.com/dboxtzegl/image/upload/#{@cost.get_cover_url}" %>
+<div class="image_form col m2 publicacion_img z-depth-5" style='background-image: url(<%= img %>)'' >
+	<%= f.fields_for :image, f.object.obtener_imagen do |a| %>
+		 <%= a.file_field :cover,class:"form-control col m12", id:"image_cover"  %>
+	<% end %>
+</div>
+<div class="input-group col m9 offset-m1">
+	<%= f.radio_button :category, 'habitacion' %> 
+	<%= label :category, 'Habitación' , for:"cost_category_habitacion" %>
+
+	<%= f.radio_button :category, 'Venta' %> 
+	<%= label :category, 'Venta' , for:"cost_category_venta" %>
+</div>
+<div class="input-field col m9 offset-m1">
+	<i class="material-icons prefix">shopping_basket</i>
+	<%= f.text_field :type_service, class:"col m10 offset-m1", placeholder:"nombre del servicio o producto"%>
+</div>
+<div class="input-field col m9 offset-m3">
+	<i class="material-icons prefix">monetization_on</i>
+	<%= f.number_field :value, class:"col m10 offset-m1", placeholder:"Valor"%>
+</div>
+
+<div class="input-field col m9 offset-m3">
+	<i class="material-icons prefix">description</i>
+	<%= f.text_field :description, class:"col m10 offset-m1", placeholder:"Descripción"%>
+</div>
+
+<div class="actions col m12">
+	<%= f.submit "Guardar", class:"btn col m2 offset-m10" %>
+</div>
