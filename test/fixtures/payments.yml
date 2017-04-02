@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation: one
+  valor: 1
+  motivo: MyString
+
+two:
+  reservation: two
+  valor: 1
+  motivo: MyString

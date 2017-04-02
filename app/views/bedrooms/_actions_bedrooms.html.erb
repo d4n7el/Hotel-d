@@ -1,0 +1,12 @@
+<%if b.reservation_id != nil %>
+	<%= link_to edit_bedroom_reservation_path(b,b.reservation_id), class:"update-btn btn-floating right" do%>
+		<i class="material-icons">cached</i>
+	<% end %>
+<% elsif params[:state_bedroom] != "Desactivado" %>
+	<%= link_to new_bedroom_reservation_path(b), class:"reserva-btn btn-floating right" do%>
+		<i class="material-icons">business_center</i>
+	<%end%>
+<%end%>
+<%= link_to edit_bedroom_path(b), class:"btn btn-floating right" do%>
+	<i class="material-icons">mode_edit</i>
+<%end%>

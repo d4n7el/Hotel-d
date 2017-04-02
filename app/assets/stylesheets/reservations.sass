@@ -1,0 +1,49 @@
+// Place all the styles related to the Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$primaryColor: rgba(21,101,192,.9)
+$secundaryColor: #263238
+$thirdColor: rgba(46,125,50,1)
+$color-sombra: rgba(21,101,192,.2)
+$color-alert: rgba(216,67,21,1)
+
+div.habitaciones_individual
+	padding: 0px !important
+	div.contenido_individual
+		padding: 0px !important
+		div.image_individual
+			height: 20em !important
+			overflow: hidden
+			padding: 0px !important
+			figure
+				padding: 0px !important
+				img 
+					border-radius: 7em 0em
+					padding: 0px !important
+					width: 100%
+					height: auto
+	div.descripcion_individual
+		margin-top: 1em
+		width: 34%
+		margin-left: 46%
+		padding-top: 6em !important
+		background-color: $primaryColor
+		position: absolute
+		height: 19em
+		max-height: 19em
+		border-radius: 50em 0px 0px 0px
+		color: white
+		box-shadow: -5px 2px 50px  white 
+div.pago_reservation
+	margin-top: 2em
+	color: white
+	background-color: $primaryColor
+	padding: 0px !important
+	div.pagos_reserva 	
+		max-height: 12em
+		overflow: scroll
+	div.resumen_pagos_reserva
+		padding-top: 2em
+		background-color: white
+		color: $primaryColor
+		box-shadow: -5px 2px 10px  $color-sombra

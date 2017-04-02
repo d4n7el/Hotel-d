@@ -1,0 +1,16 @@
+<div class="habitaciones_individual center col m12">
+	<div class="contenido_individual col m12">
+		<div class="image_individual col m12">
+			<figure class="col m12">
+				<%= cl_image_tag( @bedroom.get_cover_url, :width => 100, :height => 200) %>
+			</figure>
+		</div>
+		<div class="descripcion_individual">
+			<h5>Reservación</h5>
+			<h5 class="colm12"><%= @bedroom.name%></h5>
+			<h6 class="colm12"><%= @bedroom.state%></h6>
+			<h6 class="colm12"><%= @bedroom.cost.type_service%></h6>
+			<h6 class="colm12">$  <%= @bedroom.cost.value%></h6>
+		</div>
+	</div>
+</div>

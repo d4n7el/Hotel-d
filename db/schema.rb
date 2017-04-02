@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328153638) do
+ActiveRecord::Schema.define(version: 20170402195211) do
 
   create_table "bedrooms", force: :cascade do |t|
     t.integer  "cost_id"
     t.string   "name"
-    t.string   "state"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "reservation_id", default: 0
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "reservation_id"
+    t.string   "state",          default: "Activo"
     t.index ["cost_id"], name: "index_bedrooms_on_cost_id"
     t.index ["reservation_id"], name: "index_bedrooms_on_reservation_id"
   end
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20170328153638) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "debts", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.string   "value"
+    t.string   "reason"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "state",          default: "Pendiente"
+    t.index ["reservation_id"], name: "index_debts_on_reservation_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.string   "cover"
     t.integer  "bedroom_id"
@@ -40,6 +50,15 @@ ActiveRecord::Schema.define(version: 20170328153638) do
     t.datetime "updated_at", null: false
     t.index ["bedroom_id"], name: "index_images_on_bedroom_id"
     t.index ["cost_id"], name: "index_images_on_cost_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "value"
+    t.string   "reason"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
   end
 
   create_table "reservations", force: :cascade do |t|

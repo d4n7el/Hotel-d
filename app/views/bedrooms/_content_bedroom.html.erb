@@ -1,0 +1,14 @@
+<div class="habitaciones center col m3">
+	<%= render 'actions_bedrooms', b: b %>
+	<div class="contenido col m12">
+		<div class="image col m12">
+			<figure class="col m12">
+				<%= cl_image_tag( b.get_cover_url, :width => 100, :height => 200) %>
+			</figure>
+		</div>
+		<h5 class="colm12"><%= b.name%></h5>
+		<h6 class="colm12"><%= b.state%></h6>
+		<h6 class="colm12"><%= b.cost.type_service%></h6>
+		<h6 class="colm12">$  <%= b.cost.value%></h6>
+	</div>
+</div>

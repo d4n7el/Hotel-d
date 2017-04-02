@@ -1,0 +1,10 @@
+<%= form_for [@reservation, @payment], :remote => true, html: {id:"new_pay" ,'data-type' => 'json'} do |p| %>
+	<div class="input-field col m8">
+		<i class="material-icons prefix">attach_money</i>
+		<%= p.number_field :value, class:"col m10 offset-m1 fecha_final", placeholder:"Pago"%>
+	</div>
+	<%= p.text_field :reason, class:"col m10 offset-m1 fecha_final hide", value:"Reserva", readonly:"true" %>
+	<div class="actions col m4">
+		<%= p.submit "Pagar", class:"btn col m12" %>
+	</div>
+<% end -%>

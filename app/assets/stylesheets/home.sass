@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $primaryColor: rgba(21,101,192,.9)
 $secundaryColor: #263238
+$thirdColor: rgba(46,125,50,1)
 $color-sombra: rgba(21,101,192,.2)
 $color-alert: rgba(216,67,21,1)
 
@@ -11,7 +12,21 @@ div.yield
 nav
 	background-color: $primaryColor !important
 	i,a
-		color: $secundaryColor !important
+		color: white !important
+div.individual_slader
+	height: 30em
+	overflow: hidden
+	padding: 0px 0px !important
+	box-shadow: 1px 0px 20px $secundaryColor
+	img 	
+		padding: 0px 0px !important
+div.carousel
+	position: absolute
+	margin-top: 20em
+	left: 0
+	a img
+		box-shadow: 1px 0px 20px $secundaryColor
+		border-radius: 1em
 div.input-field 
 	padding: 0px
 	margin-top: 2em
@@ -30,8 +45,10 @@ h4
 	color: white
 	text-align: center
 	text-shadow: 1px 0px 4px $secundaryColor
-	padding-bottom: 2em
+	padding-bottom: 1em
 h5.mensaje
+	color: white
+	padding: 1em
 	color: $primaryColor
 	margin-top: 2em
 div.field-check_box
@@ -57,22 +74,22 @@ div.mensaje_alerta
 	margin-bottom: 1em
 .btn-floating
 	z-index: 0 !important
-.reserva-btn
-	box-shadow: -1px 2px 6px  $primaryColor !important
+.reserva-btn,.update-btn
 	background-color: white !important
 	border: 1px  $primaryColor
-	color: $primaryColor !important
 	margin-top: 2em
 	margin-left: 1em
 	margin-bottom: 1em
+.reserva-btn
+	box-shadow: -1px 2px 6px  $primaryColor !important
 	i
 		color: $primaryColor !important
-div.slader
-	background-color: red
-	height: 20em
-	overflow: hidden
-	padding: 0px 0px !important
-	box-shadow: 1px 0px 20px $secundaryColor
+.update-btn
+	box-shadow: -1px 2px 6px  $thirdColor !important
+	i 
+		color: $thirdColor !important
+.liberar-btn
+	background-color: $thirdColor !important
 input[type="radio"]:checked + label:after
 	background-color: $primaryColor !important
 	border: $primaryColor !important
@@ -86,3 +103,6 @@ div.publicacion_img
 	input
 		height: 100%
 		opacity: 0
+div.filtros
+	box-shadow: -1px 1px 1px  $color-sombra !important
+	margin-bottom: 2em

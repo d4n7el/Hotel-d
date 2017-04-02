@@ -1,0 +1,36 @@
+<div class="pago_reservation col m5">
+	<div class="pagos_reserva col m12">
+		<% deuda = 0 %>
+		<% pago = 0 %>
+		<% @debt.each do |d|%>
+			<% deuda  = deuda + d.value.to_i %>
+			<h6 class="center" id="deuda_total">Deuda total : $ <%= deuda  %></h6>
+		<% end -%>
+		<% @payments.each do |p|%>
+			<% pago = pago + p.value.to_i %>
+			<div class="col m12">
+				<p class="col m6 ">Pago <%= p.reason %> :</p>
+				<h6 class="center col m6">$ <%= p.value %></h6>
+			</div>
+		<% end -%>
+	</div>
+	<div class="resumen_pagos_reserva col m12">	
+		<div class="col m12">
+			<p class="col m6 ">Total pagado:</p>
+			<h6 class="center" id="total_pagado"> <%= pago %></h6>
+		</div>
+		<div class="col m12">
+			<% diferencia  = deuda - pago %>
+			<p class="col m6 ">Deuda:</p>
+			<h6 class="center" id="deuda_actual"> <%= diferencia %></h6>
+		</div>
+	</div>
+</div>
+<%if diferencia == 0 && pago == deuda %>
+	<div class="reservation_free col m5 offset-m7">
+		<%= link_to bedroom_reservation_free_path, method: 'post',class:"btn liberar-btn btn-floating right btn-large" do %>
+			<i class="material-icons">traffic</i>
+			<span>Liberar</span>
+		<% end -%>
+	</div>
+<% end %>

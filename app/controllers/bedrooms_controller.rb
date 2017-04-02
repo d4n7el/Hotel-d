@@ -3,9 +3,13 @@ class BedroomsController < ApplicationController
 	before_action :set_bedroom, only: [:edit,:update,:destroy]
 	def index
 		#@Bedrooms = Bedroom.where(state: "Activo")
-		@bedrooms= params[:state].present? ? Bedroom.includes(:cost).where(bedrooms: { state: "Activo" }).includes(:reservations).where(reservations: {state: "Activo"}) :
-		@bedrooms = Bedroom.includes(:cost).where(bedrooms: { state: "Activo" })
-
+		@bedrooms= params[:state_reservation] == "Activo" ? 
+			Bedroom.includes(:cost).where.not(bedrooms: { reservation_id: params[:state_reservation] }).includes(:reservations).where(reservations: {state: "Activo"}) :
+		@bedrooms= params[:state_reservation] == "Libre" ? 
+			Bedroom.includes(:cost).where(bedrooms: { reservation_id: nil, state: "Activo" }) :
+		@bedrooms = params[:state_bedroom].present? ? 
+			Bedroom.includes(:cost).where(bedrooms: { state: params[:state_bedroom]}) :
+		@bedrooms = Bedroom.includes(:cost).where(bedrooms: { state: "Activo"})
 	end
 	def show
 		

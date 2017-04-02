@@ -1,0 +1,28 @@
+<% accion ||= "Guardar" %>
+<div class="input-field col m5">
+	<i class="material-icons prefix">today</i>
+	<%= f.date_field :admission_date, class:"datepicker col m10 offset-m3 fecha_inicial", placeholder:"Inicio de resrvación"%>
+</div>
+<div class="input-field col m5 offset-m1">
+	<i class="material-icons prefix">date_range</i>
+	<%= f.date_field :departure_date, class:"datepicker col m10 offset-m3 fecha_final", placeholder:"Fin de la resrvación"%>
+</div>
+<input type="number" id="val_hab" value="<%= @bedroom.cost.value %>" class="hide" readonly>
+<div class="input-field col m11">
+	<i class="material-icons prefix">assignment_ind</i>
+	<%= f.text_field :client_name, placeholder:"Nombre del cliente",class:"col m10 offset-m2" %>
+</div>
+<div class="input-field col m5">
+	<i class="material-icons prefix">fingerprint</i>
+	<%= f.text_field :identification_card, placeholder:"Cedula del cliente",class:"col m10 offset-m3" %>
+</div>
+<div class="input-field col m5 offset-m1">
+	<i class="material-icons prefix">contact_phone</i>
+	<%= f.text_field :phone, placeholder:"Telefono",class:"col m10 offset-m3" %>
+</div>
+<div class="pago col m12 center">
+	
+</div>
+<div class="actions col m12">
+	<%= f.submit accion, class:"btn col m3" %>
+</div>

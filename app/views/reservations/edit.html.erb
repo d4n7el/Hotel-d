@@ -1,0 +1,12 @@
+<div class="contenedor_habitaciones col m12">
+	<%= render 'content_bedroom'%>
+	<div class="reserva col m7">
+		<%= form_for ([ @bedroom,@reservation]) do |f| %>
+			<%= render 'form_reservation', f: f, accion: "Actualizar" %>
+		<% end %>
+	</div>
+	<%= render 'debts/vist_debt' %>
+</div>
+<div class="new_pago col m5 offset-m7">
+	<%= render 'payments/form_pay'%>
+</div>

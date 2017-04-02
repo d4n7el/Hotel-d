@@ -3,27 +3,14 @@
 		<i class="material-icons">add_circle</i>
 	<%end%>
 </div>
+<div class="filtros col m12">
+	<%= link_to "Desactivas",bedrooms_path(state_bedroom: "Desactivado"), class:"btn"%>
+	<%= link_to "Activas",bedrooms_path(state_bedroom: "Activo"), class:"btn"%>
+	<%= link_to "Ocupadas",bedrooms_path(state_reservation: "Activo"), class:"btn"%>
+	<%= link_to "Libres",bedrooms_path(state_reservation: "Libre"), class:"btn"%>
+</div>
 <div class="contenedor_habitaciones col m12">
 	<% @bedrooms.each do |b|%>
-		<div class="habitaciones center col m3">
-			<%= link_to edit_bedroom_path(b.id), class:"btn btn-floating right" do%>
-				<i class="material-icons">mode_edit</i>
-			<%end%>
-			<!-- <button class="reserva-btn btn-floating right"><i class="material-icons">business_center</i></button> -->
-			<%= link_to new_bedroom_reservation_path(b.id), class:"reserva-btn btn-floating right" do%>
-				<i class="material-icons">business_center</i>
-			<%end%>
-			<div class="contenido col m12">
-				<div class="image col m12">
-					<figure class="col m12">
-						<%= cl_image_tag( b.get_cover_url, :width => 100, :height => 200) %>
-					</figure>
-				</div>
-				<h5 class="colm12"><%= b.name%></h5>
-				<h6 class="colm12"><%= b.state%></h6>
-				<h6 class="colm12"><%= b.cost.type_service%></h6>
-				<h6 class="colm12">$  <%= b.cost.value%></h6>
-			</div>
-		</div>
+		<%= render 'content_bedroom', b: b%>
 	<% end %>
 </div>
