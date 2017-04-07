@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 	root 'home#index'
 	resources :bedrooms do
 		resources :reservations, except: [:index]
-		post '/reservations/:id/reservation_free', to: 'reservations#reservation_free', as: "reservation_free"
+		post '/reservations/:id/reservation_free', to: 'bedrooms#reservation_free', as: "reservation_free"
 	end
 	resources :reservations do
 		resources :payments

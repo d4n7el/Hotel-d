@@ -2,6 +2,7 @@ class Bedroom < ApplicationRecord
 	has_one :image
   	belongs_to :cost
   	has_many :reservations
+  	accepts_nested_attributes_for :reservations, update_only: true
   	accepts_nested_attributes_for :image
 
   	def obtener_imagen
