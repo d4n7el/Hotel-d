@@ -1,0 +1,9 @@
+<% @reservation.each do |r| %>
+	<div class="info_reservation_out col m3">
+		<div class="image col m12">
+			<figure class="col m12">
+				<%= cl_image_tag( r.bedroom.get_cover_url, :width => 100, :height => 200) %>
+			</figure>
+		</div>
+	</div>
+<% end -%>

@@ -1,0 +1,54 @@
+<%if params[:reservations_out].present? %>
+	<%= render 'reservations_out'%>
+<% else %>
+	<div class="busquda col m4 right"> 
+		<%= form_tag "/reservations/index", method: :get do %>
+			<div class="input-field-search">
+				<%= text_field_tag :keyword, nil, placeholder:"Busqueda Cliente", class:"col m8 offset-m1"  %>
+				<%= content_tag :button, type: :subtmit, class:"btn btn-floating" do %>
+					<i class="material-icons">youtube_searched_for</i>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<table class="view_reservation centered responsive-table">
+		<thead>
+			<tr>
+				<th>Imagen</th>
+				<th><%= link_to "Habitación",reservations_path(keyword: params[:keyword],order: 'bedrooms.name')%>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th><%= link_to "N. dias", reservations_path(keyword: params[:keyword],order: 'quantity_days') %>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th><%= link_to "Cliente", reservations_path(keyword: params[:keyword],order: 'client_name') %>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th><%= link_to "Identifiación", reservations_path(keyword: params[:keyword],order: 'identification_card')%>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th><%= link_to "Telefono", reservations_path(keyword: params[:keyword],order: 'phone') %>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th><%= link_to "Estado", reservations_path(keyword: params[:keyword],order: 'state') %>
+					<i class="material-icons">expand_more</i>
+				</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @reservation.each do |r|%>
+				<tr>
+					<td><%= cl_image_tag( r.bedroom.get_cover_url, :width => 50, :height => 50, class:"circle") %></td>
+					<td><%= link_to r.bedroom.name, reservations_path(filter_bedroom: r.bedroom.name) %></td>
+					<td><%= r.quantity_days %></td>
+					<td><%= link_to r.client_name, reservations_path(filter: r.client_name) %></td>
+					<td><%= link_to r.identification_card, reservations_path(filter_card: r.identification_card) %></td>
+					<td><%= r.phone %></td>
+					<td><%= r.state %></td>
+					<td><button class="btn btn-floating"><i class="material-icons">zoom_in</i></button></td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+<% end %>

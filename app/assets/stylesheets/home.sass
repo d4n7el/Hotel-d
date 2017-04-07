@@ -90,6 +90,18 @@ div.mensaje_alerta
 		color: $thirdColor !important
 .liberar-btn
 	background-color: $thirdColor !important
+.alert-btn
+	transition: .7s !important
+	background-color: $color-alert !important
+	box-shadow: -1px 2px 6px  $color-alert !important
+	i,span
+		color: white
+.alert-btn:hover
+	background-color: white !important
+	i
+		display: none
+	span
+		color: $color-alert !important
 input[type="radio"]:checked + label:after
 	background-color: $primaryColor !important
 	border: $primaryColor !important
@@ -106,3 +118,4 @@ div.publicacion_img
 div.filtros
 	box-shadow: -1px 1px 1px  $color-sombra !important
 	margin-bottom: 2em
+	margin-top: 2em

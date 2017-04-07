@@ -16,6 +16,7 @@
 	            <%if user_signed_in? %>
 	            	<li class=""><%= link_to "Habitaciones", bedrooms_path%> </li>
 	            	<li class=""><%= link_to "Costos", costs_path %> </li>
+	            	<li class=""><%= link_to "Historial reservas", reservations_path %> </li>
 	            	<li class=""><%= link_to destroy_user_session_path, method: :delete do%>
 	            		<i class="material-icons">power_settings_new</i>
 	            		<% end %>

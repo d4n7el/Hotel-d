@@ -9,7 +9,7 @@
 			<% end %>
 		</div>
 		<% @costs.each do |c| %>
-			<div class="col m4 offset-m1 listado_costos center">
+			<div class="col m4 listado_costos center">
 				<h5 class="col m11"><%= c.type_service %></h5>
 				<div class="accion col m1">
 					<%= link_to edit_cost_path(c.id), class:"waves-effect btn btn-floating right" do%>

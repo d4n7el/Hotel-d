@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   	
 
   get 'debts/index'
-
+  get 'reservations/index'
 	resources :costs
 	devise_for :users
 	root 'home#index'
 	resources :bedrooms do
-		resources :reservations
+		resources :reservations, except: [:index]
 		post '/reservations/:id/reservation_free', to: 'reservations#reservation_free', as: "reservation_free"
 	end
 	resources :reservations do

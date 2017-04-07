@@ -1,5 +1,5 @@
 <div class="opciones col m12">
-	<%= link_to new_bedroom_path, class:"btn btn-floating right waves-effect" do %>
+	<%= link_to new_bedroom_path, class:"btn btn-floating right waves-effect btn-large" do %>
 		<i class="material-icons">add_circle</i>
 	<%end%>
 </div>
@@ -8,6 +8,10 @@
 	<%= link_to "Activas",bedrooms_path(state_bedroom: "Activo"), class:"btn"%>
 	<%= link_to "Ocupadas",bedrooms_path(state_reservation: "Activo"), class:"btn"%>
 	<%= link_to "Libres",bedrooms_path(state_reservation: "Libre"), class:"btn"%>
+	<%= link_to reservations_path(reservations_out: "out"), class:"alert-btn right btn-floating  btn-large" do%>
+		<i class="material-icons">add_alert</i>
+		<span> <%= @bedrooms_out %></span>
+	<% end -%>
 </div>
 <div class="contenedor_habitaciones col m12">
 	<% @bedrooms.each do |b|%>
