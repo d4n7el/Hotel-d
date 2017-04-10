@@ -1,11 +1,14 @@
 <% accion ||= "Guardar" %>
-<div class="input-field col m5">
+<div class="input-field col m4">
 	<i class="material-icons prefix">today</i>
-	<%= f.date_field :admission_date, class:"datepicker col m10 offset-m3 fecha_inicial", placeholder:"Inicio de resrvación"%>
+	<%= f.date_field :admission_date, class:"datepicker col m10 offset-m3 fecha_inicial", placeholder:"Inicio"%>
 </div>
-<div class="input-field col m5 offset-m1">
+<div class="input-field col m4 offset-m1">
 	<i class="material-icons prefix">date_range</i>
-	<%= f.date_field :departure_date, class:"datepicker col m10 offset-m3 fecha_final", placeholder:"Fin de la resrvación"%>
+	<%= f.date_field :departure_date, class:"datepicker col m10 offset-m3 fecha_final", placeholder:"Fin"%>
+</div>
+<div class="col m1 disponibilidad_reserva center">
+	<i class="material-icons" id="disponibilidad_reserva">visibility</i>
 </div>
 <input type="number" id="val_hab" value="<%= @bedroom.cost.value %>" class="hide" readonly>
 <div class="input-field col m11">

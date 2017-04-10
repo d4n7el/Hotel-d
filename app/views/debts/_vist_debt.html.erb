@@ -26,11 +26,9 @@
 		</div>
 	</div>
 </div>
-<%if diferencia == 0 && pago == deuda %>
-	<div class="reservation_free col m5 offset-m7">
-		<%= link_to bedroom_reservation_free_path, method: 'post',class:"btn liberar-btn btn-floating right btn-large" do %>
-			<i class="material-icons">traffic</i>
-			<span>Liberar</span>
-		<% end -%>
-	</div>
-<% end %>
+<div class="reservation_free col m5 offset-m7">
+	<%= link_to bedroom_reservation_free_path, method: 'post',class:"btn liberar-btn btn-floating right btn-large" do %>
+		<i class="material-icons">traffic</i>
+		<span>Liberar</span>
+	<% end -%>
+</div>

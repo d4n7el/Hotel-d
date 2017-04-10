@@ -1,9 +1,27 @@
 <% @reservation.each do |r| %>
-	<div class="info_reservation_out col m3">
+	<div class="info_reservation_out col m4">
 		<div class="image col m12">
 			<figure class="col m12">
 				<%= cl_image_tag( r.bedroom.get_cover_url, :width => 100, :height => 200) %>
 			</figure>
 		</div>
+		<div class="contenido col m12">	
+			<p class="center"><%= r.bedroom.name%></p>		
+			<div class="col m12">	
+				<p class="col m12"><i class="material-icons">assignment_ind</i> <%= r.client_name %></p>
+			</div>
+			<div class="col m12">	
+				<p class="col m6"><i class="material-icons prefix">today</i> <%= r.admission_date.strftime('%F') %></p>
+				<p class="col m6"><i class="material-icons">date_range</i> <%= r.departure_date.strftime('%F') %></p>
+				<p class="col m12"><i class="material-icons">call</i> <%= r.phone %></p>
+			</div>
+		</div>
+		<div class="col m12">
+		<div class="pagos col m12">
+			<p class="col m12"><i class="material-icons">assignment_ind</i>Deuda Total: $ <%= r.debt.value %></p>
+			<%= calculate_payments r.id %>
+		</div>
+		</div>
+		
 	</div>
 <% end -%>

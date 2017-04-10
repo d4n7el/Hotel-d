@@ -1,20 +1,36 @@
-<% @bedroom.get_cover_url != "v1488331135/photo_v0myys.png" ? img = @bedroom.get_cover_url : img = "http://res.cloudinary.com/dboxtzegl/image/upload/#{@bedroom.get_cover_url}" %>
-<div class="image_form col m2 publicacion_img z-depth-5" style='background-image: url(<%= img %>)' >
+<div class="habitaciones_individual center col m12">
+	<div class="contenido_individual col m12">
+		<div class="image_individual col m12">
+			<figure class="col m12">
+				<%= cl_image_tag( @bedroom.get_cover_url, :width => 100, :height => 200) %>
+			</figure>
+		</div>
+		<div class="descripcion_individual">
+			<h5>Actualizacion</h5>
+			<h5 class="colm12"><%= @bedroom.name%></h5>
+			<h6 class="colm12"><%= @bedroom.state%></h6>
+		</div>
+	</div>
+</div>
+
+<div class="image_form  publicacion_img z-depth-5 circle" style='background-image: url(http://res.cloudinary.com/dboxtzegl/image/upload/c_scale,w_90/v1488331135/photo_v0myys.png)' >
 	<%= f.fields_for :image, f.object.obtener_imagen do |a| %>
 		<%= a.file_field :cover, placeholder:"", class:"form-control col m12", id:"image_cover"  %>
 	<% end %>
 </div>
-<div class="input-group col m9 offset-m1">
+<div class="input-group col m3">
 	<% @costs.each do |c| %>
-		<%= f.radio_button :cost_id, c.id.to_i %> 
-		<%= label :cost_id, c.type_service , for:"bedroom_cost_id_#{c.id}" %>	
+		<div class="input-field-radio col m12">
+			<%= f.radio_button :cost_id, c.id.to_i %> 
+			<%= label :cost_id, c.type_service , for:"bedroom_cost_id_#{c.id}" %>
+		</div>	
 	<% end %>
 </div>
-<div class="input-field col m9 offset-m1">
+<div class="input-field col m8 offset-m1">
 	<i class="material-icons prefix">assignment_ind</i>
 	<%= f.text_field :name, placeholder:"Nombre"%>
 </div>
-<div class="input-group col m9 offset-m3">
+<div class="input-group col m3 offset-m1">
 	<%= f.radio_button :state, 'Activo' %> 
 	<%= label :state, "Activo" , for:"bedroom_state_activo" %>
 

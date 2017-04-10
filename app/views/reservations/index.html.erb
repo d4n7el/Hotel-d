@@ -46,7 +46,11 @@
 					<td><%= link_to r.identification_card, reservations_path(filter_card: r.identification_card) %></td>
 					<td><%= r.phone %></td>
 					<td><%= link_to r.state, reservations_path(filter_state: r.state) %></td>
-					<td><button class="btn btn-floating"><i class="material-icons">zoom_in</i></button></td>
+					<% unless r.state == "Finalizado" %>
+						<td> <%= link_to edit_bedroom_reservation_path(r.bedroom.id,r.id),class:"btn-floating update-btn" do%>
+							<i class="material-icons">zoom_in</i></button></td>
+						<% end%>
+					<% end%>
 				</tr>
 			<%end%>
 		</tbody>

@@ -64,7 +64,7 @@ div.mensaje_alerta
 		z-index: 2 !important
 		background-color: $primaryColor !important
 		box-shadow: 0px 1px 20px  $primaryColor !important
-	div.alerta
+	div.alerta,div.alerta_js
 		z-index: 2 !important
 		background-color: $color-alert !important
 		box-shadow: 0px 1px 20px  $color-alert !important
@@ -90,6 +90,9 @@ div.mensaje_alerta
 	i 
 		color: $thirdColor !important
 .liberar-btn
+	position: fixed !important
+	bottom: 0 !important
+	right: 0 !important
 	background-color: $thirdColor !important
 .alert-btn
 	transition: .7s !important
@@ -109,13 +112,16 @@ input[type="radio"]:checked + label:after
 div.input-group
 	margin-top: 2em
 div.publicacion_img
-	height: 12em
+	height: 7em
+	width: 7em
+	position: absolute
 	background-size: cover
 	background-repeat: no-repeat
-	border-radius: 1em
 	input
 		height: 100%
 		opacity: 0
+.input-field-radio
+	margin: 1em
 div.filtros
 	box-shadow: -1px 1px 1px  $color-sombra !important
 	margin-bottom: 2em
