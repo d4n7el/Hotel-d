@@ -4,9 +4,11 @@ class CostsController < ApplicationController
   def index
   	@costs = Cost.all
   end
+  
   def new
   	@cost = Cost.new
   end
+
   def create
   	@cost = Cost.new(cost_params)
   	if @cost.save
@@ -14,9 +16,11 @@ class CostsController < ApplicationController
       flash[:notice] = 'se realizo el registro existosamente.'
   	end
   end
+
   def edit
     
   end
+
   def update
     if @cost.update(cost_params)
       redirect_to costs_path
@@ -31,6 +35,7 @@ class CostsController < ApplicationController
   	params.require(:cost).permit(:type_service,:value,:category,:description,
       image_attributes:[:cover,:id])
   end
+
   def set_cost
     @cost = Cost.find(params[:id])
   end
